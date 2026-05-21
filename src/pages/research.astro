@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+
+const projects = [
+  {
+    title: 'Orbis',
+    year: '2024–present',
+    desc: 'A 469M-parameter STDiT-based driving world model using flow matching. Primary experimental platform for video generation research in autonomous driving.',
+    links: [{ label: 'code', url: '#' }],
+  },
+  {
+    title: 'MoQA-Track',
+    year: '2025–present',
+    desc: 'Motion Query Augmented Tracking — persistent object tracking queries co-denoised alongside video latents inside a Spatiotemporal DiT, supervised with Hungarian matching loss.',
+    links: [{ label: 'paper (soon)', url: '#' }],
+    target: 'NeurIPS 2026',
+  },
+  {
+    title: 'VideoRAE',
+    year: '2025–present',
+    desc: 'Video extension of Representation Autoencoders using DINOv2 features with an STDiT backbone. Exploring temporal consistency in feature-space tokenization.',
+    links: [],
+  },
+  {
+    title: 'V-JEPA2 Alignment',
+    year: '2025–present',
+    desc: 'Cross-attention bridge injecting V-JEPA2 temporal features into driving world models. Investigating physics emergence in self-supervised video representations.',
+    links: [],
+    target: 'ICLR 2027',
+  },
+  {
+    title: 'LSA — Localized Semantic Alignment',
+    year: '2024',
+    desc: 'Alignment loss derived from DINOv2 feature consistency inside bounding boxes to finetune SVD for temporally consistent driving video generation.',
+    links: [{ label: 'paper', url: '#' }],
+  },
+];
+
+const publications = [
+  {
+    title: 'Localized Semantic Alignment for Temporally Consistent Driving Video Generation',
+    venue: 'Published',
+    year: '2024',
+    arxiv: '#',
+    code: '#',
+  },
+];
+---
+
+<Base title="Research" activePage="research">
+  <h1 class="page-title">Research</h1>
+  <p class="section-intro">
+    Temporal consistency in video generation for autonomous driving.
+    All work centers on Orbis as the primary experimental platform.
+  </p>
+
+  <h2 class="section-title">Projects</h2>
+  {projects.map((p) => (
+    <details class="project-item">
+      <summary class="project-header">
+        <span class="project-title">{p.title}</span>
+        <span class="project-year">{p.year}</span>
+      </summary>
+      {p.target && <span class="project-target">→ {p.target}</span>}
+      <p class="project-desc">{p.desc}</p>
+      {p.links.length > 0 && (
+        <div class="project-links">
+          {p.links.map((l) => (
+            <a href={l.url} class="project-link-item">[{l.label}]</a>
+          ))}
+        </div>
+      )}
+    </details>
+  ))}
+
+  <h2 class="section-title" style="margin-top: 48px;">Publications</h2>
+  {publications.map((p) => (
+    <div class="pub-item">
+      <span class="pub-title">{p.title}</span>
+      <span class="pub-meta">
+        {p.venue}, {p.year} ·
+        <a href={p.arxiv}> [arXiv]</a>
+        <a href={p.code}> [code]</a>
+      </span>
+    </div>
+  ))}
+</Base>
+
+<style>
+  details.project-item summary {
+    cursor: pointer;
+    list-style: none;
+  }
+  details.project-item summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

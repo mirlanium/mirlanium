@@ -1,0 +1,28 @@
+---
+interface Props {
+  activePage?: string;
+}
+const { activePage = '' } = Astro.props;
+
+const links = [
+  { href: '/about', label: 'About' },
+  { href: '/research', label: 'Research' },
+  { href: '/experience', label: 'Experience' },
+  { href: '/music', label: 'Music' },
+  { href: '/blog', label: 'Blog' },
+];
+---
+
+<nav class="nav">
+  <a href="/" class="nav-logo">mirlanium</a>
+  <div class="nav-links">
+    {links.map(({ href, label }) => (
+      <a
+        href={href}
+        class:list={['nav-link', { active: activePage === label.toLowerCase() }]}
+      >
+        {label}
+      </a>
+    ))}
+  </div>
+</nav>

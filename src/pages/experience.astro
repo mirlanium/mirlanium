@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+
+const experience = [
+  {
+    role: 'PhD Researcher',
+    org: 'ETH Zurich',
+    period: '2024 – present',
+    note: 'Video generation and world models for autonomous driving.',
+  },
+  {
+    role: 'Research Collaboration',
+    org: 'NYU — LeCun & Xie Lab',
+    period: '2025 – present',
+    note: 'Academic discussions on representation autoencoders and video understanding.',
+  },
+  {
+    role: 'HPC Researcher',
+    org: 'Forschungszentrum Jülich (JUWELS)',
+    period: '2024 – present',
+    note: 'Large-scale training on GH200 and A100 GPU clusters.',
+  },
+];
+---
+
+<Base title="Experience" activePage="experience">
+  <h1 class="page-title">Experience</h1>
+  {experience.map((e) => (
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">{e.role}</span>
+        <span class="exp-period">{e.period}</span>
+      </div>
+      <span class="exp-org">{e.org}</span>
+      <p class="exp-note">{e.note}</p>
+    </div>
+  ))}
+</Base>

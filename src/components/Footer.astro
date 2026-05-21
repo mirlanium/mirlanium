@@ -1,0 +1,16 @@
+---
+const links = [
+  { label: 'GitHub', href: 'https://github.com/' },
+  { label: 'Scholar', href: 'https://scholar.google.com/' },
+  { label: 'arXiv', href: 'https://arxiv.org/' },
+  { label: 'Email', href: 'mailto:hello@mirlanium.com' },
+];
+---
+
+<footer class="footer">
+  <div class="footer-links">
+    {links.map(({ label, href }) => (
+      <a href={href} class="footer-link" target="_blank" rel="noopener">{label}</a>
+    ))}
+  </div>
+</footer>
