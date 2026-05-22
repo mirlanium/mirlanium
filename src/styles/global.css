@@ -349,6 +349,24 @@ a {
   font-size: 14px;
 }
 
+.music-listen {
+  margin-top: 32px;
+  font-size: 15px;
+  font-weight: 300;
+  opacity: 0.6;
+}
+
+.music-listen a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.music-listen a:hover {
+  opacity: 1;
+}
+
 /* ─── Blog list ────────────────────────────────── */
 
 .blog-item {
