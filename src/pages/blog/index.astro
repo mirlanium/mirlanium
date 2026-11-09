@@ -9,6 +9,9 @@ const posts = (await getCollection('blog')).sort(
 
 <Base title="Blog" activePage="blog">
   <h1 class="page-title">Blog</h1>
+  {posts.length === 0 && (
+    <p class="section-intro">Nothing here yet.</p>
+  )}
   {posts.map((post) => (
     <a href={`/blog/${post.id}`} class="blog-item">
       <span class="blog-date">
