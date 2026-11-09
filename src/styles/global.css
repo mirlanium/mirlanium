@@ -133,6 +133,21 @@ a {
   padding-top: 80px;
 }
 
+/* Full-page background engraving (home only) */
+.home-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url('/Schamachia1734.jpg') center / cover no-repeat;
+  opacity: 0.18;
+}
+
+[data-theme="dark"] .home-bg {
+  opacity: 0.08;
+  filter: grayscale(1) invert(1);
+}
+
 .home-title {
   font-size: 32px;
   font-weight: 400;
